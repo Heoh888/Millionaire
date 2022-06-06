@@ -9,5 +9,6 @@ import Foundation
 
 struct Record: Codable {
     let date: Date
+    var correctAnswers: Double?
     let amount: Int
 }

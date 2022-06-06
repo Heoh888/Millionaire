@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct StatisticsViewCell: View {
+    
+    // MARK: - Properties
+    var dateRecrd: String
+    var correctAnswers: Double = 0
+    var amount: Int
+    
+    // MARK: - Views
     var body: some View {
         HStack {
-            Text("10/05/2022").padding(.leading)
+            Text(dateRecrd)
+                .padding(.leading)
+                .frame(width: UIScreen.main.bounds.width / 3,
+                       alignment: .leading)
             Spacer()
-            Text("16 000").padding(.trailing)
+            Text("\(String(format: "%.1f", correctAnswers)) %")
+                .multilineTextAlignment(.center)
+
+            Spacer()
+            Text("\(amount)")
+                .padding(.trailing)
+                .frame(width: UIScreen.main.bounds.width / 3,
+                       alignment: .trailing)
         }
         .padding(.horizontal)
         .background(.white)
@@ -22,6 +39,6 @@ struct StatisticsViewCell: View {
 
 struct StatisticsViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsViewCell()
+        StatisticsViewCell(dateRecrd: "", correctAnswers: 10, amount: 1)
     }
 }

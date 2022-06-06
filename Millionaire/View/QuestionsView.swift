@@ -7,49 +7,45 @@
 
 import SwiftUI
 
+protocol GameSceneDelegat: AnyObject {
+    func didendGame(withResult result: Int, record: Record)
+}
+
 struct QuestionsView: View {
     
-    @State private var showMainView = false
+    // MARK: - Properties
+    weak var gameDelegat: GameSceneDelegat?
     @State var question: Int = 0
-    @State var amounts: [Question] = Question().mock()
-
-
+    var amounts: GameSession = Game.shared.session!
+    
+    // MARK: - Private properties
+    @State private var showMainView = false
+    
+    // MARK: - Views
     var body: some View {
         VStack {
-            Text("Твой выигрыш: 16 000")
+            Text("Твой выигрыш: \(Game.shared.yourWinnings(amount: amounts.amounts[question].amount!))")
                 .multilineTextAlignment(.center)
             Spacer()
-
+            
             VStack(alignment: .center, spacing: 6) {
-                ForEach(0 ..< amounts.count) { i in
-                    WinningAmountCell(checkSum: amounts[i].status!,
-                                      amount: amounts[i].amount!)
+                ForEach(1 ..< amounts.amounts.count) { i in
+                    WinningAmountCell(checkSum: amounts.amounts[i].status!,
+                                      amount: String(amounts.amounts[i].amount!))
                 }
             }
-
-            Spacer()
             
-            Text(amounts[question].question!)
+            Spacer()
+            Text(amounts.amounts[question + 1].question!)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             Spacer()
             HStack {
                 VStack {
-                    
                     Button(action:{
-                        if amounts[question].answerOptions![0].status {
-                            amounts = Question().checkAmount(questions: amounts,
-                                                             numQuestion: question)
-                            if question < 9 {
-                                question += 1
-                            } else {
-                                self.showMainView.toggle()
-                            }
-                        } else {
-                            self.showMainView.toggle()
-                        }
+                        answerButton(answer: 0)
                     }) {
-                        Text(amounts[question].answerOptions![0].answer)
+                        Text(amounts.amounts[question + 1].answerOptions![0].answer)
                             .font(.system(size: 17, weight: .semibold))
                             .padding(.horizontal)
                             .frame(width: 170, height: 50)
@@ -62,19 +58,9 @@ struct QuestionsView: View {
                     }
                     
                     Button(action:{
-                        if amounts[question].answerOptions![1].status {
-                            amounts = Question().checkAmount(questions: amounts,
-                                                             numQuestion: question)
-                            if question < 9 {
-                                question += 1
-                            } else {
-                                self.showMainView.toggle()
-                            }
-                        } else {
-                            self.showMainView.toggle()
-                        }
+                        answerButton(answer: 1)
                     }) {
-                        Text(amounts[question].answerOptions![1].answer)
+                        Text(amounts.amounts[question + 1].answerOptions![1].answer)
                             .font(.system(size: 17, weight: .semibold))
                             .padding(.horizontal)
                             .frame(width: 170, height: 50)
@@ -90,19 +76,9 @@ struct QuestionsView: View {
                 Spacer()
                 VStack {
                     Button(action:{
-                        if amounts[question].answerOptions![2].status {
-                            amounts = Question().checkAmount(questions: amounts,
-                                                             numQuestion: question)
-                            if question < 9 {
-                                question += 1
-                            } else {
-                                self.showMainView.toggle()
-                            }
-                        } else {
-                            self.showMainView.toggle()
-                        }
+                        answerButton(answer: 2)
                     }) {
-                        Text(amounts[question].answerOptions![2].answer)
+                        Text(amounts.amounts[question + 1].answerOptions![2].answer)
                             .font(.system(size: 17, weight: .semibold))
                             .padding(.horizontal)
                             .frame(width: 170, height: 50)
@@ -115,19 +91,9 @@ struct QuestionsView: View {
                     }
                     
                     Button(action:{
-                        if amounts[question].answerOptions![3].status {
-                            amounts = Question().checkAmount(questions: amounts,
-                                                             numQuestion: question)
-                            if question < 9 {
-                                question += 1
-                            } else {
-                                self.showMainView.toggle()
-                            }
-                        } else {
-                            self.showMainView.toggle()
-                        }
+                        answerButton(answer: 3)
                     }) {
-                        Text(amounts[question].answerOptions![3].answer)
+                        Text(amounts.amounts[question + 1].answerOptions![3].answer)
                             .font(.system(size: 17, weight: .semibold))
                             .padding(.horizontal)
                             .frame(width: 170, height: 50)
@@ -147,6 +113,10 @@ struct QuestionsView: View {
                 Color.black
                 Button(action: {
                     self.showMainView.toggle()
+                    let record = Record(date: Date(),
+                                        amount: Game.shared.yourWinnings(amount: amounts.amounts[question].amount!))
+                    
+                    Game.shared.session?.didendGame(withResult: question, record: record)
                 }) {
                     Text("Завершить игру")
                         .foregroundColor(.white)
@@ -159,8 +129,31 @@ struct QuestionsView: View {
             .ignoresSafeArea(.all, edges: .top)
             .frame(height: 100)
             .cornerRadius(30)
+        }.ignoresSafeArea(.all, edges: .bottom)
+    }
+}
+
+extension QuestionsView {
+    
+    // MARK: - Private functions
+    /// - Parameter answer option: В это параметр нужно передавать число 0...4, это варианты ответов.
+    private func answerButton(answer option: Int) {
+        if amounts.amounts[question + 1].answerOptions![option].status {
+            Game.shared.checkAmount(questions: amounts.amounts,
+                                              numQuestion: question + 1)
+            if question < 9 {
+                question += 1
+            } else {
+                self.showMainView.toggle()
+                let record = Record(date: Date(),
+                                    amount: Game.shared.yourWinnings(amount: amounts.amounts[question].amount!))
+                Game.shared.session?.didendGame(withResult: question, record: record)
+            }
+        } else {
+            self.showMainView.toggle()
+            let record = Record(date: Date(), amount: 0)
+            Game.shared.session?.didendGame(withResult: question, record: record)
         }
-        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 

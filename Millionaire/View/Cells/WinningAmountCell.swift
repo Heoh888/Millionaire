@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct WinningAmountCell: View {
+    
+    // MARK: - Properties
     var checkSum: Bool
     var amount: String
     
+    // MARK: - Views
     var body: some View {
         if checkSum {
             Text(amount)

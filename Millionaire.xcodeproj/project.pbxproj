@@ -19,7 +19,8 @@
 		8653E6F5284A939D00542DE2 /* StatisticsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F4284A939D00542DE2 /* StatisticsViewCell.swift */; };
 		8653E6F7284A95EE00542DE2 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F6284A95EE00542DE2 /* Statistics.swift */; };
 		8653E6FA284A96AB00542DE2 /* RecordsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */; };
-		8687CFE5284936BE00DF5E4A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8687CFE4284936BE00DF5E4A /* ContentViewModel.swift */; };
+		8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8661998E284BF261003C6D17 /* GameSingleton.swift */; };
+		86619991284C0F48003C6D17 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86619990284C0F48003C6D17 /* GameSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,8 @@
 		8653E6F4284A939D00542DE2 /* StatisticsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewCell.swift; sourceTree = "<group>"; };
 		8653E6F6284A95EE00542DE2 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsCaretaker.swift; sourceTree = "<group>"; };
-		8687CFE4284936BE00DF5E4A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		8661998E284BF261003C6D17 /* GameSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSingleton.swift; sourceTree = "<group>"; };
+		86619990284C0F48003C6D17 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,6 @@
 			children = (
 				8653E6F8284A969100542DE2 /* Utills */,
 				8687CFE62849434900DF5E4A /* Model */,
-				8687CFE32849369500DF5E4A /* ViewModel */,
 				863A5ABD284919E500B100C9 /* View */,
 				863A5A93284919A700B100C9 /* MillionaireApp.swift */,
 				863A5A95284919A700B100C9 /* ContentView.swift */,
@@ -148,16 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */,
+				8661998E284BF261003C6D17 /* GameSingleton.swift */,
+				86619990284C0F48003C6D17 /* GameSession.swift */,
 			);
 			path = Utills;
-			sourceTree = "<group>";
-		};
-		8687CFE32849369500DF5E4A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8687CFE4284936BE00DF5E4A /* ContentViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8687CFE62849434900DF5E4A /* Model */ = {
@@ -302,10 +297,11 @@
 				8653E6F3284A410B00542DE2 /* WinningAmountCell.swift in Sources */,
 				863A5AC528491A6700B100C9 /* QuestionsView.swift in Sources */,
 				863A5A96284919A700B100C9 /* ContentView.swift in Sources */,
-				8687CFE5284936BE00DF5E4A /* ContentViewModel.swift in Sources */,
 				8653E6F5284A939D00542DE2 /* StatisticsViewCell.swift in Sources */,
 				863A5AC128491A3800B100C9 /* StatisticsView.swift in Sources */,
 				863A5AC728491A8500B100C9 /* MainView.swift in Sources */,
+				86619991284C0F48003C6D17 /* GameSession.swift in Sources */,
+				8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */,
 				8653E6F0284A341100542DE2 /* Question.swift in Sources */,
 				8653E6F7284A95EE00542DE2 /* Statistics.swift in Sources */,
 				863A5A94284919A700B100C9 /* MillionaireApp.swift in Sources */,

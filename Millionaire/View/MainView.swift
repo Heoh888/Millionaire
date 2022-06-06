@@ -9,23 +9,31 @@ import SwiftUI
 
 struct MainView: View {
     
+    // MARK: - Private properties
     @State private var showStatisticsView = false
     @State private var questionsView = false
     
+    // MARK: - Views
     var body: some View {
         VStack {
+            Text("Твои лимоны: \( Game.shared.totalAmount(Game.shared.records)) ")
+                .multilineTextAlignment(.center)
+                .padding(.top, 50)
+                .padding()
+            
             Image("logo")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 300, height: 300)
                 .padding(.all)
             
-            Text("Кто хочет стать миллионером?")
+            Text("Кто хочет стать лиммонером?")
                 .padding(.all)
                 .font(.system(size: 20, weight: .regular))
             
             Button(action:{
                 self.questionsView.toggle()
+                Game.shared.session = GameSession()
             }) {
                 Text("Я хочу")
                     .font(.system(size: 20, weight: .semibold))

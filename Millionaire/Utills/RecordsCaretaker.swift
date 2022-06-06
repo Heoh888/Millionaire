@@ -8,10 +8,13 @@
 import Foundation
 
 class RecordsCaretaker {
+    
+    // MARK: - Private properties
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     private let key = "records"
     
+    // MARK: - Private functions
     func save(records: [Record]) {
         do {
             let data = try encoder.encode(records)
