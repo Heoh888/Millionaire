@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8639DAC2284FC08700769046 /* ButtonHints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8639DAC1284FC08700769046 /* ButtonHints.swift */; };
+		8639DAC42850160200769046 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8639DAC32850160200769046 /* AnswerButtons.swift */; };
+		8639DAC628501F0600769046 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8639DAC528501F0600769046 /* Observable.swift */; };
 		863A5A94284919A700B100C9 /* MillionaireApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5A93284919A700B100C9 /* MillionaireApp.swift */; };
 		863A5A96284919A700B100C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5A95284919A700B100C9 /* ContentView.swift */; };
 		863A5A98284919A900B100C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863A5A97284919A900B100C9 /* Assets.xcassets */; };
@@ -21,6 +24,10 @@
 		8653E6FA284A96AB00542DE2 /* RecordsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */; };
 		8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8661998E284BF261003C6D17 /* GameSingleton.swift */; };
 		86619991284C0F48003C6D17 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86619990284C0F48003C6D17 /* GameSession.swift */; };
+		86DE9955284EC403004C3ECD /* DisplayingQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE9954284EC403004C3ECD /* DisplayingQuestions.swift */; };
+		86DE9957284EC4A6004C3ECD /* GameSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE9956284EC4A6004C3ECD /* GameSettingsView.swift */; };
+		86DE9959284ECB1F004C3ECD /* ToggleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE9958284ECB1F004C3ECD /* ToggleItem.swift */; };
+		86DE995C284ED72C004C3ECD /* DisplayingQuestionsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE995B284ED72C004C3ECD /* DisplayingQuestionsStrategy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8639DAC1284FC08700769046 /* ButtonHints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHints.swift; sourceTree = "<group>"; };
+		8639DAC32850160200769046 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
+		8639DAC528501F0600769046 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		863A5A90284919A700B100C9 /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		863A5A93284919A700B100C9 /* MillionaireApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillionaireApp.swift; sourceTree = "<group>"; };
 		863A5A95284919A700B100C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +68,10 @@
 		8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsCaretaker.swift; sourceTree = "<group>"; };
 		8661998E284BF261003C6D17 /* GameSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSingleton.swift; sourceTree = "<group>"; };
 		86619990284C0F48003C6D17 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		86DE9954284EC403004C3ECD /* DisplayingQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingQuestions.swift; sourceTree = "<group>"; };
+		86DE9956284EC4A6004C3ECD /* GameSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsView.swift; sourceTree = "<group>"; };
+		86DE9958284ECB1F004C3ECD /* ToggleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleItem.swift; sourceTree = "<group>"; };
+		86DE995B284ED72C004C3ECD /* DisplayingQuestionsStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingQuestionsStrategy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8639DAC0284FC06A00769046 /* Modul */ = {
+			isa = PBXGroup;
+			children = (
+				8639DAC1284FC08700769046 /* ButtonHints.swift */,
+				8639DAC32850160200769046 /* AnswerButtons.swift */,
+			);
+			path = Modul;
+			sourceTree = "<group>";
+		};
 		863A5A87284919A700B100C9 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +129,8 @@
 		863A5A92284919A700B100C9 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
+				86DE995A284ED6CD004C3ECD /* Strategy */,
+				86DE9953284EC3B1004C3ECD /* Fundamental */,
 				8653E6F8284A969100542DE2 /* Utills */,
 				8687CFE62849434900DF5E4A /* Model */,
 				863A5ABD284919E500B100C9 /* View */,
@@ -128,10 +153,12 @@
 		863A5ABD284919E500B100C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8639DAC0284FC06A00769046 /* Modul */,
 				8653E6F1284A40C700542DE2 /* Cells */,
 				863A5AC028491A3800B100C9 /* StatisticsView.swift */,
 				863A5AC428491A6700B100C9 /* QuestionsView.swift */,
 				863A5AC628491A8500B100C9 /* MainView.swift */,
+				86DE9956284EC4A6004C3ECD /* GameSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +178,7 @@
 				8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */,
 				8661998E284BF261003C6D17 /* GameSingleton.swift */,
 				86619990284C0F48003C6D17 /* GameSession.swift */,
+				8639DAC528501F0600769046 /* Observable.swift */,
 			);
 			path = Utills;
 			sourceTree = "<group>";
@@ -162,6 +190,23 @@
 				8653E6F6284A95EE00542DE2 /* Statistics.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		86DE9953284EC3B1004C3ECD /* Fundamental */ = {
+			isa = PBXGroup;
+			children = (
+				86DE9954284EC403004C3ECD /* DisplayingQuestions.swift */,
+				86DE9958284ECB1F004C3ECD /* ToggleItem.swift */,
+			);
+			path = Fundamental;
+			sourceTree = "<group>";
+		};
+		86DE995A284ED6CD004C3ECD /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				86DE995B284ED72C004C3ECD /* DisplayingQuestionsStrategy.swift */,
+			);
+			path = Strategy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,18 +339,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8639DAC628501F0600769046 /* Observable.swift in Sources */,
 				8653E6F3284A410B00542DE2 /* WinningAmountCell.swift in Sources */,
+				8639DAC42850160200769046 /* AnswerButtons.swift in Sources */,
 				863A5AC528491A6700B100C9 /* QuestionsView.swift in Sources */,
 				863A5A96284919A700B100C9 /* ContentView.swift in Sources */,
 				8653E6F5284A939D00542DE2 /* StatisticsViewCell.swift in Sources */,
 				863A5AC128491A3800B100C9 /* StatisticsView.swift in Sources */,
 				863A5AC728491A8500B100C9 /* MainView.swift in Sources */,
+				86DE9957284EC4A6004C3ECD /* GameSettingsView.swift in Sources */,
 				86619991284C0F48003C6D17 /* GameSession.swift in Sources */,
 				8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */,
 				8653E6F0284A341100542DE2 /* Question.swift in Sources */,
+				86DE995C284ED72C004C3ECD /* DisplayingQuestionsStrategy.swift in Sources */,
 				8653E6F7284A95EE00542DE2 /* Statistics.swift in Sources */,
 				863A5A94284919A700B100C9 /* MillionaireApp.swift in Sources */,
+				8639DAC2284FC08700769046 /* ButtonHints.swift in Sources */,
+				86DE9959284ECB1F004C3ECD /* ToggleItem.swift in Sources */,
 				8653E6FA284A96AB00542DE2 /* RecordsCaretaker.swift in Sources */,
+				86DE9955284EC403004C3ECD /* DisplayingQuestions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

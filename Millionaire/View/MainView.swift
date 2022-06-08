@@ -11,14 +11,32 @@ struct MainView: View {
     
     // MARK: - Private properties
     @State private var showStatisticsView = false
-    @State private var questionsView = false
+    @State private var showQuestionsView = false
+    @State private var showGameSettingsView = false
     
     // MARK: - Views
     var body: some View {
         VStack {
+            HStack {
+                Button(action:{
+                    self.showGameSettingsView.toggle()
+                }) {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.black)
+                }
+                .sheet(isPresented: $showGameSettingsView) {
+                    GameSettingsView()
+                }
+            }
+            .frame(width: UIScreen.main.bounds.width, alignment: .trailing)
+            .padding(.trailing, 50)
+            
             Text("Твои лимоны: \( Game.shared.totalAmount(Game.shared.records)) ")
                 .multilineTextAlignment(.center)
-                .padding(.top, 50)
+                .padding()
                 .padding()
             
             Image("logo")
@@ -32,8 +50,8 @@ struct MainView: View {
                 .font(.system(size: 20, weight: .regular))
             
             Button(action:{
-                self.questionsView.toggle()
-                Game.shared.session = GameSession()
+                self.showQuestionsView.toggle()
+                Game.shared.session = GameSession(question: 0, fiftyFifty: true)
             }) {
                 Text("Я хочу")
                     .font(.system(size: 20, weight: .semibold))
@@ -42,7 +60,7 @@ struct MainView: View {
                     .background(.black)
                     .cornerRadius(50)
             }
-            .fullScreenCover(isPresented: $questionsView) {
+            .fullScreenCover(isPresented: $showQuestionsView) {
                 QuestionsView()
             }
             .padding(.all)

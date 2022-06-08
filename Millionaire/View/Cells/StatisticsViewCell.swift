@@ -37,8 +37,3 @@ struct StatisticsViewCell: View {
     }
 }
 
-struct StatisticsViewCell_Previews: PreviewProvider {
-    static var previews: some View {
-        StatisticsViewCell(dateRecrd: "", correctAnswers: 10, amount: 1)
-    }
-}
