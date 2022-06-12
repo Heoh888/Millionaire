@@ -8,26 +8,10 @@
 import SwiftUI
 
 struct GameSettingsView: View {
-    @State var displayingQuestions = false
-    @State var displayingHints = false
+    @State var displayingQuestions: Bool
+    @State var displayingHints: Bool
     
-    private var selectedDisplayingQuestions: DisplayingQuestions {
-        switch displayingQuestions {
-        case true:
-            return .random
-        case false:
-            return .inOrder
-        }
-    }
-    
-    private var selecteddisplayingHints: DisplayingQuestions {
-        switch displayingHints {
-        case true:
-            return .random
-        case false:
-            return .inOrder
-        }
-    }
+    private let recordsCaretaker = RecordsCaretaker()
     
     var body: some View {
         VStack(alignment: .center) {
@@ -45,6 +29,7 @@ struct GameSettingsView: View {
                 Spacer()
                 Button {
                     self.displayingQuestions.toggle()
+                    recordsCaretaker.save(records: displayingQuestions, key: "orderQuestions")
                 } label: {
                     ToggleItem(isOne: displayingQuestions)
                 }
@@ -59,6 +44,7 @@ struct GameSettingsView: View {
                 Spacer()
                 Button {
                     self.displayingHints.toggle()
+                    recordsCaretaker.save(records: displayingHints, key: "displayingHints")
                 } label: {
                     ToggleItem(isOne: displayingHints)
                 }
@@ -72,6 +58,6 @@ struct GameSettingsView: View {
 
 struct GameSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        GameSettingsView()
+        GameSettingsView(displayingQuestions: true, displayingHints: true)
     }
 }

@@ -8,16 +8,33 @@
 import Foundation
 
 class GameSession {
-    var amounts: [Question] = Question().mock()
+    public var orderQuestions: Bool
     public var question: Observable<Int>
     public var fiftyFifty: Observable<Bool>
+    public var alertNotification: Observable<Bool>
+    public var alertShowNotification: Observable<Bool>
     
-    public init(question: Int, fiftyFifty: Bool) {
+    var questions: [Question]
+
+    public init(orderQuestions: Bool,
+                question: Int,
+                fiftyFifty: Bool,
+                alertNotification: Bool,
+                alertShowNotification: Bool,
+                questions: [Question]) {
+        self.orderQuestions = orderQuestions
         self.question = Observable(question)
         self.fiftyFifty = Observable(fiftyFifty)
+        self.alertNotification = Observable(alertNotification)
+        self.alertShowNotification = Observable(alertShowNotification)
+        self.questions = questions
     }
 }
 extension GameSession: GameSceneDelegat, AnswerButtonsDelegat, HintsButtonsDelegat {
+    func alertHints(hints value: Bool) {
+        alertNotification.value = value
+    }
+    
     func hintsFiftyFifty(hints value: Bool) {
         fiftyFifty.value = value
     }
@@ -28,7 +45,7 @@ extension GameSession: GameSceneDelegat, AnswerButtonsDelegat, HintsButtonsDeleg
     
     func didendGame(withResult result: Int, record: Record) {
         var val = record
-        val.correctAnswers = Double(result) / Double(amounts.count - 1) * 100
+        val.correctAnswers = Double(result) / Double(questions.count - 1) * 100
         Game.shared.addRecord(val)
     }
 }

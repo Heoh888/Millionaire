@@ -14,6 +14,8 @@ struct MainView: View {
     @State private var showQuestionsView = false
     @State private var showGameSettingsView = false
     
+    private let recordsCaretaker = RecordsCaretaker()
+    
     // MARK: - Views
     var body: some View {
         VStack {
@@ -28,7 +30,8 @@ struct MainView: View {
                         .foregroundColor(.black)
                 }
                 .sheet(isPresented: $showGameSettingsView) {
-                    GameSettingsView()
+                    GameSettingsView(displayingQuestions: recordsCaretaker.retrieveSettings(key: "orderQuestions"),
+                                     displayingHints: recordsCaretaker.retrieveSettings(key: "displayingHints"))
                 }
             }
             .frame(width: UIScreen.main.bounds.width, alignment: .trailing)
@@ -51,7 +54,13 @@ struct MainView: View {
             
             Button(action:{
                 self.showQuestionsView.toggle()
-                Game.shared.session = GameSession(question: 0, fiftyFifty: true)
+                Game.shared.session = GameSession(orderQuestions: recordsCaretaker.retrieveSettings(key: "orderQuestions"),
+                                                  question: 0,
+                                                  fiftyFifty: true,
+                                                  alertNotification: false,
+                                                  alertShowNotification: false,
+                                                  questions: recordsCaretaker.retrieveSettings(key: "orderQuestions") ? InOrderDisplayingQuestions().displayingQuestions() :
+                                                    RandomDisplayingQuestions().displayingQuestions())
             }) {
                 Text("Я хочу")
                     .font(.system(size: 20, weight: .semibold))
@@ -61,7 +70,7 @@ struct MainView: View {
                     .cornerRadius(50)
             }
             .fullScreenCover(isPresented: $showQuestionsView) {
-                QuestionsView()
+                QuestionsView(showAlert: false, displayingHints: recordsCaretaker.retrieveSettings(key: "displayingHints"))
             }
             .padding(.all)
             

@@ -9,9 +9,9 @@ import Foundation
 
 
 struct Question {
-    let number: Int?
+    var number: Int?
     let question: String?
-    let amount: Int?
+    var amount: Int?
     let answerOptions: [Answers]?
     var status: Bool?
     

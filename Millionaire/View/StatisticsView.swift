@@ -42,7 +42,7 @@ struct StatisticsView: View {
             .background(.black)
             ScrollView {
                 Divider()
-                ForEach(0 ..< Game.shared.records.count) { index in
+                ForEach(0 ..< Game.shared.records.count, id:\.self) { index in
                     let record = Game.shared.records[index]
                     StatisticsViewCell(dateRecrd: dateFormatter.string(from: record.date),
                                        correctAnswers: record.correctAnswers ?? 0,

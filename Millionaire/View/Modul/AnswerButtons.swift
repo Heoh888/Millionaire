@@ -31,7 +31,7 @@ struct AnswerButtons: View {
     var body: some View {
         hintsObserver.fiftyFifty.addObserver(observer, options: [.initial, .new, .old]) { hintsFiftyFifty, change in
             answer = fiftyFiftyAnswers(items: hintsFiftyFifty ? 2 : 1,
-                                       question: session.amounts[question + 1])
+                                       question: session.questions[question + 1])
         }
         return (
             HStack {
@@ -40,12 +40,12 @@ struct AnswerButtons: View {
                         HStack {
                             ForEach(0 ..< 2) { j in
                                 Button(action:{
-                                    print(i == 0 ? i + j : i + (1 + j), answer)
                                     answerButton(answer: answer[i == 0 ? i + j : i + (1 + j)])
-                                    Game.shared.session?.hintsFiftyFifty(hints: true)
-                                    Game.shared.session?.question(correct: question)
+                                    session.alertHints(hints: false)
+                                    hintsObserver.hintsFiftyFifty(hints: true)
+                                    hintsObserver.question(correct: question)
                                 }) {
-                                    Text(session.amounts[question + 1].answerOptions![answer[i == 0 ? i + j : i + (1 + j)]].answer)
+                                    Text(session.questions[question + 1].answerOptions![answer[i == 0 ? i + j : i + (1 + j)]].answer)
                                         .font(.system(size: 17, weight: .semibold))
                                         .padding(.horizontal)
                                         .frame(width: 170, height: 50)
@@ -70,8 +70,8 @@ extension AnswerButtons {
     // MARK: - Private functions
     /// - Parameter answer option: В это параметр нужно передавать число 0...4, это варианты ответов.
     private func answerButton(answer option: Int) {
-        if session.amounts[question + 1].answerOptions![option].status {
-            Game.shared.checkAmount(questions: session.amounts,
+        if session.questions[question + 1].answerOptions![option].status {
+            Game.shared.checkAmount(questions: session.questions,
                                     numQuestion: question + 1)
             if question < 9 {
                 question += 1
@@ -79,7 +79,7 @@ extension AnswerButtons {
             } else {
                 self.showMainView.toggle()
                 let record = Record(date: Date(),
-                                    amount: Game.shared.yourWinnings(amount: session.amounts[question].amount!))
+                                    amount: Game.shared.yourWinnings(amount: session.questions[question].amount!))
                 Game.shared.session?.didendGame(withResult: question, record: record)
             }
         } else {

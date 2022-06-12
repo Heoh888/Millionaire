@@ -16,14 +16,15 @@ class Game {
     private let recordsCaretaker = RecordsCaretaker()
     private(set) var records: [Record] = [] {
         didSet {
-            recordsCaretaker.save(records: records)
+            recordsCaretaker.save(records: records, key: "records")
         }
     }
+    
     
     // MARK: - Initialization
     init(session: GameSession? = nil) {
         self.session = session
-        records = recordsCaretaker.retrieveRecords()
+        records = recordsCaretaker.retrieveRecords(key: "records")
     }
     
     // MARK: - Functions
@@ -36,8 +37,8 @@ class Game {
     }
     
     func checkAmount(questions:[Question], numQuestion: Int) {
-        for item in 1...Game.shared.session!.amounts.count - 1 {
-            Game.shared.session!.amounts[item].status = Game.shared.session!.amounts[item].number == numQuestion ? true : false
+        for item in 1...Game.shared.session!.questions.count - 1 {
+            Game.shared.session?.questions[item].status = Game.shared.session!.questions[item].number == numQuestion ? true : false
         }
     }
     

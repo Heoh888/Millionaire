@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ToggleItem: View {
-    var isOne = false
+    var isOne = true
     var body: some View {
         RoundedRectangle(cornerRadius: 5)
             .stroke(Color.black)
@@ -17,7 +17,7 @@ struct ToggleItem: View {
                 RoundedRectangle(cornerRadius: 5)
                     .fill(Color.black)
                     .frame(width: 30, height: 25),
-                alignment: isOne ? .leading : .trailing
+                alignment: !isOne ? .leading : .trailing
             )
     }
 }

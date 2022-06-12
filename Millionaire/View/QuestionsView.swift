@@ -15,37 +15,49 @@ struct QuestionsView: View {
     
     // MARK: - Constants
     let observer = Observer()
-    let questionObserver = Game.shared.session!
     
     // MARK: - Properties
     @State var question: Int = 0
-    weak var gameDelegat: GameSceneDelegat?
+    @State var showAlert: Bool
     var session: GameSession = Game.shared.session!
-    var displayingHints = true
+    var displayingHints: Bool
+    weak var gameDelegat: GameSceneDelegat?
     
     // MARK: - Private properties
     @State private var showMainView = false
     
     // MARK: - Views
     var body: some View {
-        questionObserver.question.addObserver(observer, options: [.initial, .new, .old]) { questionNew, change in
+        session.question.addObserver(observer, options: [.initial, .new, .old]) { questionNew, change in
             question = questionNew
         }
+        
+        session.alertNotification.addObserver(observer, options: [.new, .old]) { alertNew, change in
+            if session.alertNotification.value {
+                if showAlert && alertNew {
+                    print("Alert Show", alertNew)
+                }
+            }
+            if alertNew {
+                showAlert = alertNew
+            }
+        }
+        
         return (
             VStack {
-                Text("Твой выигрыш: \(Game.shared.yourWinnings(amount: session.amounts[question].amount!))")
+                Text("Твой выигрыш: \(Game.shared.yourWinnings(amount: session.questions[question].amount!))")
                     .multilineTextAlignment(.center)
                 Spacer()
                 
                 VStack(alignment: .center, spacing: 6) {
-                    ForEach(1 ..< session.amounts.count) { i in
-                        WinningAmountCell(checkSum: session.amounts[i].status!,
-                                          amount: String(session.amounts[i].amount!))
+                    ForEach(1 ..< session.questions.count, id:\.self) { i in
+                        WinningAmountCell(checkSum: session.questions[i].status!,
+                                          amount: String(session.questions[i].amount!))
                     }
                 }
                 
                 Spacer()
-                Text(session.amounts[question + 1].question!)
+                Text(session.questions[question + 1].question!)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
@@ -56,7 +68,7 @@ struct QuestionsView: View {
                 Spacer()
                 
                 if displayingHints {
-                    ButtonHints()
+                    ButtonHints(questionNmber: question, session: session)
                         .padding(.bottom, 40)
                 }
                 
@@ -65,22 +77,26 @@ struct QuestionsView: View {
                     Button(action: {
                         self.showMainView.toggle()
                         let record = Record(date: Date(),
-                                            amount: Game.shared.yourWinnings(amount: session.amounts[question].amount!))
+                                            amount: Game.shared.yourWinnings(amount: session.questions[question].amount!))
                         
                         Game.shared.session?.didendGame(withResult: question, record: record)
                     }) {
                         Text("Завершить игру")
                             .foregroundColor(.white)
                             .font(.system(size: 25, weight: .semibold))
+                            .background(.black)
                     }
                     .fullScreenCover(isPresented: $showMainView) {
                         MainView()
                     }
                 }
+                .background(.black)
                 .ignoresSafeArea(.all, edges: .top)
                 .frame(height: 100)
                 .cornerRadius(30)
+                
             }.ignoresSafeArea(.all, edges: .bottom)
+            
         )
     }
 }

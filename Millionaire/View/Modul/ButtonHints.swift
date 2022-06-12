@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ButtonHints: View {
     
+    var questionNmber: Int
+    var session: GameSession
+    
     @State var fiftyFifty = true
     @State var hallHelp = true
     @State var callFriend = true
@@ -22,44 +25,56 @@ struct ButtonHints: View {
         HStack(alignment: .center, spacing: 40) {
             
             Button {
-                self.fiftyFifty = false
-                Game.shared.session?.hintsFiftyFifty(hints: false)
+                if !session.alertNotification.value {
+                    self.fiftyFifty = false
+                    session.hintsFiftyFifty(hints: false)
+                    session.alertHints(hints: true)
+                } else {
+                    session.alertHints(hints: true)
+                }
             } label: {
                 Image(fiftyFifty ? "Fifty-fifty" : "Spent Fifty-fifty")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 50, height: 50)
+                    .background(.white)
             }.disabled(!fiftyFifty)
             
             Button {
-                self.hallHelp = false
-                self.showHallHelp.toggle()
+                if !session.alertNotification.value {
+                    self.hallHelp = false
+                    self.showHallHelp.toggle()
+                    session.alertHints(hints: true)
+                } else {
+                    session.alertHints(hints: true)
+                }
             } label: {
                 Image(hallHelp ? "Hall help" : "Spent Hall help")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 50, height: 50)
+                    .background(.white)
             }.sheet(isPresented: $showHallHelp) {
-                Text("КуКу")
+                    HallHelpView(questionNumber: questionNmber, session: session)
             }.disabled(!hallHelp)
             
             Button {
-                self.callFriend = false
-                self.showCallFriend.toggle()
+                if !session.alertNotification.value {
+                    self.callFriend = false
+                    self.showCallFriend.toggle()
+                    session.alertHints(hints: true)
+                } else {
+                    session.alertHints(hints: true)
+                }
             } label: {
                 Image(callFriend ? "Call a friend" : "Spent Call a friend")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 50, height: 50)
             }.sheet(isPresented: $showCallFriend) {
-                Text("КуКу")
+                CallFriendView(answers: session.questions[questionNmber + 1].answerOptions!,
+                               question: session.questions[questionNmber + 1].question!)
             }.disabled(!callFriend)
         }
-    }
-}
-
-struct ButtonHints_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonHints()
     }
 }
