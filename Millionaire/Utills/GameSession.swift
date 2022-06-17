@@ -8,14 +8,18 @@
 import Foundation
 
 class GameSession {
+    
+    // MARK: - Public properties
     public var orderQuestions: Bool
     public var question: Observable<Int>
     public var fiftyFifty: Observable<Bool>
     public var alertNotification: Observable<Bool>
     public var alertShowNotification: Observable<Bool>
     
+    // MARK: - Properties
     var questions: [Question]
 
+    // MARK: - Initialization
     public init(orderQuestions: Bool,
                 question: Int,
                 fiftyFifty: Bool,
@@ -32,6 +36,7 @@ class GameSession {
 }
 extension GameSession: GameSceneDelegat, AnswerButtonsDelegat, HintsButtonsDelegat {
     
+    // MARK: - Functions
     func alertHints(hints value: Bool) {
         alertNotification.value = value
     }

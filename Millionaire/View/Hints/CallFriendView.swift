@@ -9,9 +9,11 @@ import SwiftUI
 
 struct CallFriendView: View {
     
+    // MARK: - Properties
     var answers: [Answers]
     var question: String
     
+    // MARK: - Views
     var body: some View {
         VStack(alignment: .center) {
             Text("Званок другу")

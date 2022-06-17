@@ -9,12 +9,16 @@ import SwiftUI
 
 struct HallHelpView: View {
     
+    // MARK: - Properties
     var questionNumber: Int
     var session: GameSession
+    
+    // MARK: - Private properties
     private var voices : [Double] {
             return voicesAudience(question: session.questions[questionNumber + 1])
     }
     
+    // MARK: - Views
     var body: some View {
         VStack(alignment: .center) {
             Text("Помощь зала")
@@ -57,6 +61,8 @@ struct HallHelpView: View {
     }
 }
 extension HallHelpView {
+    
+    // MARK: - Functions
     func voicesAudience(question: Question) -> [Double] {
         var totalVotes: Double = 100
         var arr = [0.0, 0.0, 0.0, 0.0]

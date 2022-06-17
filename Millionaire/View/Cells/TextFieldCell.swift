@@ -13,13 +13,16 @@ protocol TextFieldCellDelegat: AnyObject {
 
 struct TextFieldCell: View {
     
+    // MARK: - Properties
     var title: String
     var showCheckBox: Bool
     
+    // MARK: - State properties
     @StateObject var manager: TFManager
     @State var isTapped = false
     @State var checkBox = false
     
+    // MARK: - Views
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 4, content: {

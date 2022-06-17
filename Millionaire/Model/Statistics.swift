@@ -12,15 +12,3 @@ struct Record: Codable {
     var correctAnswers: Double?
     let amount: Int
 }
-
-struct Question1: Codable {
-    var number: Int?
-    let question: String?
-    var amount: Int?
-}
-
-struct Answers1: Codable {
-    let item: Int
-    let answer: String
-    let status: Bool
-}

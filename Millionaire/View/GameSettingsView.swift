@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct GameSettingsView: View {
+    
+    // MARK: - State properties
     @State var displayingQuestions: Bool
     @State var displayingHints: Bool
     
+    // MARK: - Private properties
     private let recordsCaretaker = RecordsCaretaker()
     
+    // MARK: - Views
     var body: some View {
         VStack(alignment: .center) {
                 Text("Настройки игры")

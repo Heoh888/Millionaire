@@ -9,12 +9,13 @@ import SwiftUI
 
 struct MainView: View {
     
-    // MARK: - Private properties
+    // MARK: - State private properties
     @State private var showStatisticsView = false
     @State private var showQuestionsView = false
     @State private var showGameSettingsView = false
     @State private var showAddingQuestionView = false
     
+    // MARK: - Private properties
     private let recordsCaretaker = RecordsCaretaker()
     private var questions: [Question] {
         switch recordsCaretaker.retrieveSettings(key: "orderQuestions") {

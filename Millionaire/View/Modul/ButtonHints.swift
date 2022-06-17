@@ -9,18 +9,21 @@ import SwiftUI
 
 struct ButtonHints: View {
     
+    // MARK: - Properties
     var questionNmber: Int
     var session: GameSession
     
+    // MARK: - State properties
     @State var fiftyFifty = true
     @State var hallHelp = true
     @State var callFriend = true
-    
     @State var showHallHelp: Bool = false
     @State var showCallFriend: Bool = false
     
+    // MARK: - State private properties
     @State private var hallHelpDisabled = true
     
+    // MARK: - Views
     var body: some View {
         HStack(alignment: .center, spacing: 40) {
             

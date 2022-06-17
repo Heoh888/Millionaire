@@ -9,12 +9,14 @@ import SwiftUI
 
 struct AddingQuestionView: View {
     
+    // MARK: - State properties
     @StateObject var question = TFManager(maxLimitNum: 100)
     @StateObject var answer1 = TFManager(maxLimitNum: 20)
     @StateObject var answer2 = TFManager(maxLimitNum: 20)
     @StateObject var answer3 = TFManager(maxLimitNum: 20)
     @StateObject var answer4 = TFManager(maxLimitNum: 20)
         
+    // MARK: - Views
     var body: some View {
         VStack(alignment: .center) {
             Text("Добавить вопрос")
@@ -55,7 +57,9 @@ struct AddingQuestionView: View {
     }
 }
 extension AddingQuestionView {
-    func saveQuestion() -> Question {
+    
+    // MARK: - Private functions
+    private func saveQuestion() -> Question {
         let question = Question(number: 11,
                                 question: question.text,
                                 amount: 0,

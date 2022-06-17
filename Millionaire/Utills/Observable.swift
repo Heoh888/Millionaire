@@ -9,12 +9,15 @@ import Foundation
 
 public struct ObservableOptions: OptionSet, CustomStringConvertible {
     
+    // MARK: - Public static properties
     public static let initial = ObservableOptions(rawValue: 1 << 0)
     public static let old = ObservableOptions(rawValue: 1 << 1)
     public static let new = ObservableOptions(rawValue: 1 << 2)
     
+    // MARK: - Public properties
     public var rawValue: Int
     
+    // MARK: - Initialization
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
@@ -105,8 +108,11 @@ public class Observable<Type> {
 class Observer { }
 
 class TFManager: ObservableObject {
+    
+    // MARK: - Public properties
     public var maxLimitNum: Int
     
+    // MARK: - Published properties
     @Published var maxLimit = true
     @Published var checkBox: Bool = false
     @Published var text = "" {
@@ -120,6 +126,7 @@ class TFManager: ObservableObject {
         }
     }
     
+    // MARK: - Initialization
     init (maxLimitNum: Int) {
         self.maxLimitNum = maxLimitNum
     }

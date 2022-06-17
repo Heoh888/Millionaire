@@ -12,23 +12,24 @@ protocol GameSceneDelegat: AnyObject {
 }
 
 struct QuestionsView: View {
+
+    // MARK: - State properties
+    @State var question: Int = 0
+    @State var showAlert: Bool
+    
+    // MARK: - State Private properties
+    @State private var showMainView = false
     
     // MARK: - Constants
     let observer = Observer()
     
     // MARK: - Properties
-    @State var question: Int = 0
-    @State var showAlert: Bool
     var session: GameSession = Game.shared.session!
     var displayingHints: Bool
     weak var gameDelegat: GameSceneDelegat?
-    
-    // MARK: - Private properties
-    @State private var showMainView = false
-    
+        
     // MARK: - Views
     var body: some View {
-        
         
         session.question.addObserver(observer, options: [.initial, .new, .old]) { questionNew, change in
             question = questionNew
@@ -38,7 +39,7 @@ struct QuestionsView: View {
             if session.alertNotification.value {
                 if showAlert && alertNew {
                     /*
-                      TO:DO -  выплываючее в верху экрана уведомленниие отом что
+                      TO:DO -  Выплывающее в верху экрана уведомление о том что
                                "Только одну подсказку можно использовать за ход"
                      */
                     print("Alert Show", alertNew)

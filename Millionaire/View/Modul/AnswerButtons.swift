@@ -21,13 +21,17 @@ struct AnswerButtons: View {
     let observer = Observer()
     let hintsObserver = Game.shared.session!
     
-    @State var answer: [Int] = [0, 1, 2, 3]
-    
+    // MARK: - Properties
     var session: GameSession
+    
+    // MARK: - State properties
+    @State var answer: [Int] = [0, 1, 2, 3]
     @State var question: Int
     
+    // MARK: - State private properties
     @State private var showMainView = false
     
+    // MARK: - Views
     var body: some View {
         hintsObserver.fiftyFifty.addObserver(observer, options: [.initial, .new, .old]) { hintsFiftyFifty, change in
             answer = fiftyFiftyAnswers(items: hintsFiftyFifty ? 2 : 1,

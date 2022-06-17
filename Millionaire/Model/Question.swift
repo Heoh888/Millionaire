@@ -9,6 +9,8 @@ import Foundation
 
 
 struct Question: Codable {
+    
+    // MARK: - Properties
     var number: Int?
     let question: String?
     var amount: Int?
