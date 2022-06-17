@@ -20,16 +20,27 @@ class Game {
         }
     }
     
+    private(set) var questions: [Question] = [] {
+        didSet {
+            recordsCaretaker.save(records: questions, key: "addQuestion")
+        }
+    }
+    
     
     // MARK: - Initialization
     init(session: GameSession? = nil) {
         self.session = session
         records = recordsCaretaker.retrieveRecords(key: "records")
+        questions = recordsCaretaker.retrieveQuestion(key: "addQuestion")
     }
     
     // MARK: - Functions
     func addRecord(_ record: Record) {
         records.append(record)
+    }
+    
+    func addQuestions(_ question: Question) {
+        questions.append(question)
     }
     
     func clearRecords() {

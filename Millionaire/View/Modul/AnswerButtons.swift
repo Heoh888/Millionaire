@@ -34,6 +34,7 @@ struct AnswerButtons: View {
                                        question: session.questions[question + 1])
         }
         return (
+            // TO:DO - переделать
             HStack {
                 VStack {
                     ForEach(0 ..< (answer.count == 2 ? 1 : 2), id:\.self) { i in

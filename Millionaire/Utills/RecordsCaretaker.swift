@@ -11,6 +11,7 @@ import Foundation
 ///   - key records: Ключ стотистики рекордов
 ///   - key orderQuestions: Ключ настроики  отоброжение вопросов.
 ///   - key displayingHints: Ключ настроики отоброжение подсказок.
+///   - key addQuestion: Ключ добовление вопросов.
 
 class RecordsCaretaker {
     
@@ -35,6 +36,19 @@ class RecordsCaretaker {
         
         do {
             return try decoder.decode([Record].self, from: data)
+        } catch {
+            print(error)
+            return []
+        }
+    }
+    
+    func retrieveQuestion(key: String) -> [Question] {
+        guard let data = UserDefaults.standard.data(forKey: key) else {
+            return []
+        }
+        
+        do {
+            return try decoder.decode([Question].self, from: data)
         } catch {
             print(error)
             return []

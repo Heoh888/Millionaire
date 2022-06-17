@@ -31,6 +31,7 @@ class GameSession {
     }
 }
 extension GameSession: GameSceneDelegat, AnswerButtonsDelegat, HintsButtonsDelegat {
+    
     func alertHints(hints value: Bool) {
         alertNotification.value = value
     }

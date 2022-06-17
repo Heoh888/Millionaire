@@ -13,13 +13,34 @@ struct MainView: View {
     @State private var showStatisticsView = false
     @State private var showQuestionsView = false
     @State private var showGameSettingsView = false
+    @State private var showAddingQuestionView = false
     
     private let recordsCaretaker = RecordsCaretaker()
+    private var questions: [Question] {
+        switch recordsCaretaker.retrieveSettings(key: "orderQuestions") {
+        case true : return InOrderDisplayingQuestions().displayingQuestions()
+        case false : return RandomDisplayingQuestions().displayingQuestions()
+        }
+    }
     
     // MARK: - Views
     var body: some View {
         VStack {
             HStack {
+                Button(action:{
+                    self.showAddingQuestionView.toggle()
+                }) {
+                    Image(systemName: "plus.bubble")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.black)
+                }
+                .sheet(isPresented: $showAddingQuestionView) {
+                    AddingQuestionView()
+                }
+                Spacer()
+                
                 Button(action:{
                     self.showGameSettingsView.toggle()
                 }) {
@@ -34,8 +55,8 @@ struct MainView: View {
                                      displayingHints: recordsCaretaker.retrieveSettings(key: "displayingHints"))
                 }
             }
-            .frame(width: UIScreen.main.bounds.width, alignment: .trailing)
-            .padding(.trailing, 50)
+            .padding(.horizontal, 20.0)
+            .padding(.top)
             
             Text("Твои лимоны: \( Game.shared.totalAmount(Game.shared.records)) ")
                 .multilineTextAlignment(.center)
@@ -59,8 +80,7 @@ struct MainView: View {
                                                   fiftyFifty: true,
                                                   alertNotification: false,
                                                   alertShowNotification: false,
-                                                  questions: recordsCaretaker.retrieveSettings(key: "orderQuestions") ? InOrderDisplayingQuestions().displayingQuestions() :
-                                                    RandomDisplayingQuestions().displayingQuestions())
+                                                  questions: questions)
             }) {
                 Text("Я хочу")
                     .font(.system(size: 20, weight: .semibold))

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Question {
+struct Question: Codable {
     var number: Int?
     let question: String?
     var amount: Int?
@@ -29,7 +29,7 @@ struct Question {
     }
 }
 
-struct Answers {
+struct Answers: Codable {
     let item: Int
     let answer: String
     let status: Bool
@@ -124,3 +124,4 @@ extension Question {
         return question
     }
 }
+

@@ -103,3 +103,24 @@ public class Observable<Type> {
 }
 
 class Observer { }
+
+class TFManager: ObservableObject {
+    public var maxLimitNum: Int
+    
+    @Published var maxLimit = true
+    @Published var checkBox: Bool = false
+    @Published var text = "" {
+        didSet {
+            if text.count > maxLimitNum && oldValue.count >= maxLimitNum {
+                maxLimit = true
+            } else {
+                maxLimit = false
+            }
+            
+        }
+    }
+    
+    init (maxLimitNum: Int) {
+        self.maxLimitNum = maxLimitNum
+    }
+}

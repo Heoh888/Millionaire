@@ -18,6 +18,9 @@ class InOrderDisplayingQuestions: DisplayingQuestionsStrategy {
 }
 
 class RandomDisplayingQuestions: DisplayingQuestionsStrategy {
+    
+    private let recordsCaretaker = RecordsCaretaker()
+    
     func displayingQuestions() -> [Question] {
         let amounts = [1000, 4000, 8000, 16000, 250000,
                        1000000, 2500000, 5000000,
@@ -26,9 +29,12 @@ class RandomDisplayingQuestions: DisplayingQuestionsStrategy {
         var arr: [Question]  = Question().mock()
         var arr1: [Question] = [arr[0]]
         var numberQuestions = 1
-        arr.remove(at: 0)
-        arr.shuffle()
         
+        let questions: [Question] = recordsCaretaker.retrieveQuestion(key: "addQuestion")
+        arr.remove(at: 0)
+        arr = arr + questions
+        arr.shuffle()
+        arr.removeFirst(arr.count - 9)        
         
         for i in 0 ..< arr.count {
             arr[i].amount = amounts[i]

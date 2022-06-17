@@ -11,16 +11,8 @@ struct HallHelpView: View {
     
     var questionNumber: Int
     var session: GameSession
-    private(set) var voices : [Double]  = [] {
-        didSet {
-            voicesAudience(question: session.questions[questionNumber + 1])
-        }
-    }
-    
-    init(questionNumber: Int, session: GameSession) {
-        self.questionNumber = questionNumber
-        self.session = session
-        voices = voicesAudience(question: session.questions[questionNumber + 1])
+    private var voices : [Double] {
+            return voicesAudience(question: session.questions[questionNumber + 1])
     }
     
     var body: some View {

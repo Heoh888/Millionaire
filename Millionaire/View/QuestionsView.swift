@@ -28,6 +28,8 @@ struct QuestionsView: View {
     
     // MARK: - Views
     var body: some View {
+        
+        
         session.question.addObserver(observer, options: [.initial, .new, .old]) { questionNew, change in
             question = questionNew
         }
@@ -35,6 +37,10 @@ struct QuestionsView: View {
         session.alertNotification.addObserver(observer, options: [.new, .old]) { alertNew, change in
             if session.alertNotification.value {
                 if showAlert && alertNew {
+                    /*
+                      TO:DO -  выплываючее в верху экрана уведомленниие отом что
+                               "Только одну подсказку можно использовать за ход"
+                     */
                     print("Alert Show", alertNew)
                 }
             }
@@ -45,9 +51,16 @@ struct QuestionsView: View {
         
         return (
             VStack {
+                HStack {
+                    Text("номер вопроса: \(question + 1)" )
+                    Spacer()
+                    Text("верных ответов: \(String(format: "%.0f", Double(question) / Double(session.questions.count - 1) * 100)) %" )
+                }.padding(15.0)
+                
                 Text("Твой выигрыш: \(Game.shared.yourWinnings(amount: session.questions[question].amount!))")
                     .multilineTextAlignment(.center)
-                Spacer()
+                    .padding(.bottom)
+                
                 
                 VStack(alignment: .center, spacing: 6) {
                     ForEach(1 ..< session.questions.count, id:\.self) { i in
