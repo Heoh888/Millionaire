@@ -11,9 +11,16 @@
 		863A5A96284919A700B100C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5A95284919A700B100C9 /* ContentView.swift */; };
 		863A5A98284919A900B100C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863A5A97284919A900B100C9 /* Assets.xcassets */; };
 		863A5A9B284919A900B100C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863A5A9A284919A900B100C9 /* Preview Assets.xcassets */; };
-		863A5AA5284919A900B100C9 /* MillionaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AA4284919A900B100C9 /* MillionaireTests.swift */; };
-		863A5AAF284919A900B100C9 /* MillionaireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AAE284919A900B100C9 /* MillionaireUITests.swift */; };
-		863A5AB1284919A900B100C9 /* MillionaireUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AB0284919A900B100C9 /* MillionaireUITestsLaunchTests.swift */; };
+		863A5AC128491A3800B100C9 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AC028491A3800B100C9 /* StatisticsView.swift */; };
+		863A5AC528491A6700B100C9 /* QuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AC428491A6700B100C9 /* QuestionsView.swift */; };
+		863A5AC728491A8500B100C9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863A5AC628491A8500B100C9 /* MainView.swift */; };
+		8653E6F0284A341100542DE2 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6EF284A341100542DE2 /* Question.swift */; };
+		8653E6F3284A410B00542DE2 /* WinningAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F2284A410B00542DE2 /* WinningAmountCell.swift */; };
+		8653E6F5284A939D00542DE2 /* StatisticsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F4284A939D00542DE2 /* StatisticsViewCell.swift */; };
+		8653E6F7284A95EE00542DE2 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F6284A95EE00542DE2 /* Statistics.swift */; };
+		8653E6FA284A96AB00542DE2 /* RecordsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */; };
+		8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8661998E284BF261003C6D17 /* GameSingleton.swift */; };
+		86619991284C0F48003C6D17 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86619990284C0F48003C6D17 /* GameSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +47,17 @@
 		863A5A97284919A900B100C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		863A5A9A284919A900B100C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		863A5AA0284919A900B100C9 /* MillionaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MillionaireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		863A5AA4284919A900B100C9 /* MillionaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillionaireTests.swift; sourceTree = "<group>"; };
 		863A5AAA284919A900B100C9 /* MillionaireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MillionaireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		863A5AAE284919A900B100C9 /* MillionaireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillionaireUITests.swift; sourceTree = "<group>"; };
-		863A5AB0284919A900B100C9 /* MillionaireUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillionaireUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		863A5AC028491A3800B100C9 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		863A5AC428491A6700B100C9 /* QuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsView.swift; sourceTree = "<group>"; };
+		863A5AC628491A8500B100C9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8653E6EF284A341100542DE2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8653E6F2284A410B00542DE2 /* WinningAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningAmountCell.swift; sourceTree = "<group>"; };
+		8653E6F4284A939D00542DE2 /* StatisticsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewCell.swift; sourceTree = "<group>"; };
+		8653E6F6284A95EE00542DE2 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsCaretaker.swift; sourceTree = "<group>"; };
+		8661998E284BF261003C6D17 /* GameSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSingleton.swift; sourceTree = "<group>"; };
+		86619990284C0F48003C6D17 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				863A5A92284919A700B100C9 /* Millionaire */,
-				863A5AA3284919A900B100C9 /* MillionaireTests */,
-				863A5AAD284919A900B100C9 /* MillionaireUITests */,
 				863A5A91284919A700B100C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +106,9 @@
 		863A5A92284919A700B100C9 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
+				8653E6F8284A969100542DE2 /* Utills */,
+				8687CFE62849434900DF5E4A /* Model */,
+				863A5ABD284919E500B100C9 /* View */,
 				863A5A93284919A700B100C9 /* MillionaireApp.swift */,
 				863A5A95284919A700B100C9 /* ContentView.swift */,
 				863A5A97284919A900B100C9 /* Assets.xcassets */,
@@ -110,21 +125,43 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		863A5AA3284919A900B100C9 /* MillionaireTests */ = {
+		863A5ABD284919E500B100C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				863A5AA4284919A900B100C9 /* MillionaireTests.swift */,
+				8653E6F1284A40C700542DE2 /* Cells */,
+				863A5AC028491A3800B100C9 /* StatisticsView.swift */,
+				863A5AC428491A6700B100C9 /* QuestionsView.swift */,
+				863A5AC628491A8500B100C9 /* MainView.swift */,
 			);
-			path = MillionaireTests;
+			path = View;
 			sourceTree = "<group>";
 		};
-		863A5AAD284919A900B100C9 /* MillionaireUITests */ = {
+		8653E6F1284A40C700542DE2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				863A5AAE284919A900B100C9 /* MillionaireUITests.swift */,
-				863A5AB0284919A900B100C9 /* MillionaireUITestsLaunchTests.swift */,
+				8653E6F2284A410B00542DE2 /* WinningAmountCell.swift */,
+				8653E6F4284A939D00542DE2 /* StatisticsViewCell.swift */,
 			);
-			path = MillionaireUITests;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8653E6F8284A969100542DE2 /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				8653E6F9284A96AB00542DE2 /* RecordsCaretaker.swift */,
+				8661998E284BF261003C6D17 /* GameSingleton.swift */,
+				86619990284C0F48003C6D17 /* GameSession.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
+		8687CFE62849434900DF5E4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8653E6EF284A341100542DE2 /* Question.swift */,
+				8653E6F6284A95EE00542DE2 /* Statistics.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +294,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8653E6F3284A410B00542DE2 /* WinningAmountCell.swift in Sources */,
+				863A5AC528491A6700B100C9 /* QuestionsView.swift in Sources */,
 				863A5A96284919A700B100C9 /* ContentView.swift in Sources */,
+				8653E6F5284A939D00542DE2 /* StatisticsViewCell.swift in Sources */,
+				863A5AC128491A3800B100C9 /* StatisticsView.swift in Sources */,
+				863A5AC728491A8500B100C9 /* MainView.swift in Sources */,
+				86619991284C0F48003C6D17 /* GameSession.swift in Sources */,
+				8661998F284BF261003C6D17 /* GameSingleton.swift in Sources */,
+				8653E6F0284A341100542DE2 /* Question.swift in Sources */,
+				8653E6F7284A95EE00542DE2 /* Statistics.swift in Sources */,
 				863A5A94284919A700B100C9 /* MillionaireApp.swift in Sources */,
+				8653E6FA284A96AB00542DE2 /* RecordsCaretaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				863A5AA5284919A900B100C9 /* MillionaireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				863A5AB1284919A900B100C9 /* MillionaireUITestsLaunchTests.swift in Sources */,
-				863A5AAF284919A900B100C9 /* MillionaireUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
