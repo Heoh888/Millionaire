@@ -32,9 +32,3 @@ struct WinningAmountCell: View {
         }
     }
 }
-
-struct WinningAmountCell_Previews: PreviewProvider {
-    static var previews: some View {
-        WinningAmountCell(checkSum: false, amount: " 1 000")
-    }
-}
